@@ -1,0 +1,75 @@
+<div style="background-color: #EDEFEB; border-radius: 27px; width:500px; margin: 0 auto 0 auto;">
+  <br />
+  <div class="row" style="margin-left:60px;">
+    <div class="row">
+      <div class="col-6">
+        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+        <span>&nbsp; Order Summary</span>
+      </div>
+      <div class="col-6">
+        <button type="button" class="bg-transparent border-0" (click)="BorrarTodo()">Remove All</button>
+      </div>
+    </div>
+
+    <div *ngFor="let prod of productos">
+
+      <div class="row margen40">
+        <div class="col-6">
+          <div class="row">
+            <div class="col-5" style="background-color: darkgray; height: 80px; border-radius: 27px;">
+
+            </div>
+            <div class="col-6">
+              <span>{{prod.item_name}}</span>
+              <div><small>{{prod.short_description}}</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="col-12">
+            <button type="button" class="btn btn-default btn-circle bg-info" (click)="disminuir(prod)">-</button>
+            <span>&nbsp;{{prod.quantity}}&nbsp;</span>
+            <button type="button" class="btn btn-default btn-circle bg-info" (click)="aumentar(prod)">+</button>
+            <span>&nbsp;${{prod.price_without_tax}}</span>
+
+            <button class="bg-transparent border-0" (click)="borrarReg(prod)">
+              &nbsp; <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p></p>
+    <hr />
+    <br />
+    <div>
+      <div class="row">
+        <div class="col-7">
+          <div class="row">
+            <div class="col-10">
+              <span class="d-block">Subtotal</span>
+              <span class="d-block"> Shipping fees</span>
+              <span class="d-block">Taxes</span>
+              <span class="d-block">Total (including tax)  </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-5">
+          <div class="col-6">
+            <span class="d-block">{{Subtotal}} </span>
+            <span class="d-block">{{GastosEnvios}}</span>
+            <span class="d-block">{{Impuestos}}</span>
+            <span class="d-block">{{Total}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+</div>
+
+
